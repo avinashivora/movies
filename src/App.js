@@ -10,12 +10,15 @@ function App() {
     setFavourites([...favourites, movie]);
   }
 
+  const removeFavourite = (movie) => {
+    setFavourites(favourites.filter(f => f.imdbID !== movie.imdbID))
+  }
   console.log(favourites);
 
   return (
     <div className="App">
       <SearchMovies addFavourite={addFavourite}/>
-      <FavouritesList favourites={favourites}/>
+      <FavouritesList favourites={favourites} removeFavourite={removeFavourite}/>
     </div>
   );
 }
