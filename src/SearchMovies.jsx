@@ -1,22 +1,23 @@
-import  { useState } from "react"
+import  React, { useState } from "react";
 
-function SearchMovies(){
-    const [movieTitle, setMovieTitle] = useState('')
+export default function SearchMovies(props){
+    const [movieTitle, setMovieTitle] = useState("");
+
     const searchMovie = async (e) => {
         e.preventDefault()
-        const url = `https://www.omdbapi.com/?apikey=9ea76b57=${movieTitle}`
+        const url = `https://www.omdbapi.com/?apikey=e10f435e&t=${movieTitle}`
         try{
             const response = await fetch(url)
             const data = await response.json()
-            console.log(data)
+            props.addFavourite(data)
         }
         catch(err){
-            console.log(err)
+            console.log("error fetching the data: " + err)
         }
     }
     return(
         <div>
-            <form>
+            <form onSubmit={searchMovie}>
                 <label htmlFor='query'>Movie Title</label>
                 <input
                 type='text'
@@ -31,5 +32,3 @@ function SearchMovies(){
         </div>
     )
 }
-
-export default SearchMovies()
