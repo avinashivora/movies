@@ -2,10 +2,10 @@ import FavouriteMovie from "./FavouriteMovie";
 
 export default function FavouritesList(props) {
   return (
-    <div>
+    <div className="favourites-container">
       <h3>My Favourite Movies</h3>
       {props.favourites.length > 0 ? (
-        <ul>
+        <ul className="favourites-list">
           {props.favourites.map((movie) => (
             <FavouriteMovie
               movie={movie}

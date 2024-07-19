@@ -1,5 +1,6 @@
-import { useState } from "react";
 import "./App.css";
+import './styles.css'
+import { useState } from "react";
 import SearchMovies from "./SearchMovies";
 import FavouritesList from "./FavouritesList";
 import MovieModal from "./MovieModal";
@@ -39,7 +40,7 @@ function App() {
         <MovieModal
           isModalOpen={isModalOpen}
           movie={selectedMovie}
-          onRequestClose={closeModal}
+          closeModal={closeModal}
         />
       )}
     </div>

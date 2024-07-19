@@ -9,13 +9,15 @@ export default function FavouriteMovie({ movie, removeFavourite, showModal }) {
   };
 
   return (
-    <li onClick={handleShowModal}>
+    <li className="favourite-movie" onClick={handleShowModal}>
       <img src={movie.Poster} alt={movie.Title} />
-      <div>
+      <div className="favourite-movie-info">
         <h4>{movie.Title}</h4>
         <p>{movie.Year}</p>
       </div>
-      <button onClick={handleRemove}>Remove Movie</button>
+      <button className="remove-button" onClick={handleRemove}>
+        Remove Movie
+      </button>
     </li>
   );
 }
